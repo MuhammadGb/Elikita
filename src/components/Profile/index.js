@@ -1,6 +1,5 @@
 "use client";
 
-import { Suspense } from "react";
 import { HiAdjustments, HiClipboardList, HiUserCircle } from "react-icons/hi";
 import { MdDashboard } from "react-icons/md";
 import PatientInfos from "./PatientInfos";
