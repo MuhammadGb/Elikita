@@ -1,0 +1,28 @@
+.nav_banner {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(105, 165, 255, 0.44),
+    rgba(105, 165, 255, 0.34)
+  );
+}
+
+.save_btn:hover {
+  background: royalblue !important;
+}
+
+.modal_btn {
+  border: 0px !important;
+  outline: 0px !important;
+}
+
+.outline_btn:hover {
+  background: whitesmoke !important;
+}
+
+.datepicker input {
+  background: white !important;
+}
+.datepicker input:focus {
+  border: 1px solid rgb(100, 116, 139) !important;
+  box-shadow: 0 0 0 1px rgba(100, 116, 139) !important;
+}
