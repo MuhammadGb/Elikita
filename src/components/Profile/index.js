@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs } from "flowbite-react";
+import { Suspense } from "react";
 import { HiAdjustments, HiClipboardList, HiUserCircle } from "react-icons/hi";
 import { MdDashboard } from "react-icons/md";
 import PatientInfos from "./PatientInfos";
@@ -8,7 +8,7 @@ import Symptoms from "./Symptoms";
 import FollowUps from "./FollowUps";
 import Summary from "./Summary";
 import { Button } from "flowbite-react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import Modal from "./utils/SuccessModal";
 import "./styles.css";
 import { buttonTheme } from "./themes";
@@ -16,6 +16,7 @@ import { useSearchParams } from "next/navigation";
 import Intro from "./Intro";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { Tabs } from "flowbite-react";
 
 const tabTheme = {
   base: "flex flex-col gap-2 w-full",
@@ -48,7 +49,7 @@ const tabTheme = {
   tabpanel: "py-3  w-full",
 };
 
-export default function Profiles() {
+function ProfileContent() {
   const [activeTab, setActiveTab] = useState(0);
   const [openModal, setOpenModal] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -189,5 +190,15 @@ export default function Profiles() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Profiles() {
+  return (
+    // The Suspense boundary is required by Next.js when using useSearchParams.
+    // It shows a fallback UI while the client-side component loads.
+    <Suspense fallback={<div>Loading profile...</div>}>
+      <ProfileContent />
+    </Suspense>
   );
 }
