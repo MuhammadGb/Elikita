@@ -17,7 +17,7 @@ import "./styles.css";
 import { symptomsInfoErr, symptomsInfoMsg } from "./utils/symptomsErrors";
 
 export default function Symptoms(props) {
-  const { patientID, tabsRef, editMode, nxtBtn, activeTab } = props;
+  const { patientID, tabsRef, editMode, nxtBtn, activeTab, setNxtBtn } = props;
   const [loadingState, setLoadingState] = useState(false);
   const [errors, setErrors] = useState({ ...symptomsInfoErr });
   const [symptoms, setSymptoms] = useState({
@@ -100,7 +100,7 @@ export default function Symptoms(props) {
 
     setErrors((prev) => ({ ...prev, ...findErr }));
     if (Object.values(findErr).includes(true)) {
-      console.log("Validation failed", findErr);
+      //console.log("Validation failed", findErr);
       return;
     }
 
@@ -110,7 +110,6 @@ export default function Symptoms(props) {
     }
 
     setLoadingState(true);
-    console.log(`🚀 ~ handleSubmit ~ { symptoms }:`, { symptoms });
     symptoms.id = patientID;
     try {
       const response = await fetch(`/api/patients`, {

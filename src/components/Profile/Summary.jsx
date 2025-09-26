@@ -15,7 +15,7 @@ export default function Summary(props) {
       const fetchPatientData = async () => {
         setLoadingState(true);
         try {
-          const response = await fetch(`/api/patients`, {
+          const response = await fetch(`/api/patients/${patientID}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

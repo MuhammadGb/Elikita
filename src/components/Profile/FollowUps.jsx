@@ -125,7 +125,7 @@ export default function FollowUps(props) {
 
     setErrors((prev) => ({ ...prev, ...findErr }));
     if (Object.values(findErr).includes(true)) {
-      console.log("Validation failed", findErr);
+      // console.log("Validation failed", findErr);
       return;
     }
 
