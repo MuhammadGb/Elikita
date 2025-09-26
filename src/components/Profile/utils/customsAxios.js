@@ -5,7 +5,6 @@ import { errorToastify } from "./toastify";
 export const CustomAxios = (args) => {
   const overrideNotification = args?.overrideNotification || false;
 
-  
   const accessToken =
     localStorage.getItem("accessToken") === null
       ? false
@@ -44,31 +43,3 @@ export const CustomAxios = (args) => {
     console.log("error");
   }
 };
-
-//Usage
-
-// export const updateData = async ({ id }) => {
-//   const result = await CustomAxios().put(
-//     `${process.env.REACT_APP_ENDPOINT}/data/${id}`
-//   );
-
-//   return result;
-// };
-
-// export const getData = ({ queryKey: [key, { id }] }) =>
-//   CustomAxios()
-//     .get(`${process.env.REACT_APP_ENDPOINT}/data/${id}`)
-//     .then((res) => res.data);
-
-// export const postData = async (data) => {
-//   const { taskId, workflowInstanceId } = data;
-//   try {
-//     const results = await CustomAxios().post(
-//       `${process.env.REACT_APP_ENDPOINT}/data`,
-//       data
-//     );
-//     return results;
-//   } catch (error) {
-//     return { error, msg: "Error sending mails" };
-//   }
-// };

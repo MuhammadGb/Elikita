@@ -130,7 +130,6 @@ export default function PatientInfos(props) {
       );
 
       if (!editMode && result.id) {
-        // If we created a new patient, update the ID in the parent and move to the next tab
         setPatientID(result.id);
         setEditMode(true);
       }

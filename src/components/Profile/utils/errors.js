@@ -77,18 +77,8 @@ export const capitalizeWord = (string) => {
 
 export const numbersOnly = (inputString) => {
   inputString = "";
-  // Use a regular expression to remove non-numeric characters
   if (inputString) return Number(inputString?.replace(/\D/g, ""));
 };
-
-// export const basicInfoErr = {
-//     firstName: { msg: "First name field is required", err: false },
-//     lastName: { msg: "Last name field is required", err: false },
-//     surname: { msg: "Surname field is required", err: false },
-//     patientStatus: { msg: "Patient status field is required", err: false },
-//     patientCategory: { msg: "Patient category field is required", err: false },
-//     consultant: { msg: "Consultant field is required", err: false },
-//   };
 
 export const useClickOutside = (callback) => {
   const ref = useRef(null);

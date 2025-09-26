@@ -194,8 +194,6 @@ function ProfileContent() {
 
 export default function Profiles() {
   return (
-    // The Suspense boundary is required by Next.js when using useSearchParams.
-    // It shows a fallback UI while the client-side component loads.
     <Suspense fallback={<div>Loading profile...</div>}>
       <ProfileContent />
     </Suspense>

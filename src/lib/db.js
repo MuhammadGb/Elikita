@@ -1,11 +1,9 @@
-// In-memory store to simulate a database
 let patients = [];
 let symptoms = {};
 let followUps = {};
 
 let nextPatientId = 1;
 
-// --- Patient DB Functions ---
 export const findPatientById = (id) => {
   return patients.find((p) => p.id === parseInt(id, 10));
 };
@@ -33,14 +31,12 @@ export const deletePatient = (id) => {
   if (patientIndex === -1) return null;
 
   const deletedPatient = patients.splice(patientIndex, 1);
-  // Also delete associated data
   delete symptoms[patientId];
   delete followUps[patientId];
 
   return deletedPatient[0];
 };
 
-// --- Symptoms DB Functions ---
 export const findSymptomsByPatientId = (patientId) => {
   return symptoms[patientId] || null;
 };
@@ -55,13 +51,11 @@ export const saveSymptoms = (patientId, symptomsData) => {
   return symptoms[patientId];
 };
 
-// --- Follow-ups DB Functions ---
 export const findFollowUpsByPatientId = (patientId) => {
   return followUps[patientId] || null;
 };
 
 export const saveFollowUps = (patientId, followUpsData) => {
-  // Overwriting for simplicity, same as symptoms.
   const existingFollowUps = followUps[patientId] || {};
   followUps[patientId] = {
     ...existingFollowUps,
